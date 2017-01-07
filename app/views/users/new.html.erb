@@ -1,0 +1,27 @@
+<h1>My New Users Page</h1>
+<p>This is the page for creating a new user and will house a form.</p>
+<hr>
+<%# <form action="/users" method="post" accept-charset="UTF-8">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %><%#">
+  <%# username: <input type="text" name="user[username]"><br>
+  email: <input type="text" name="user[email]"><br>
+  password: <input type="password" name="user[password]"><br>
+  <input type="submit" value="Submit">
+</form> %>
+
+<%# <%= form_tag("/users", method: "post") do %>
+<%#   <%= label_tag("user[username]", "Choose Username") %>
+<%#   <%= text_field_tag("user[username]") %><%# <br>
+   <%= label_tag("user[email]", "Your Email") %>
+<%#   <%= text_field_tag("user[email]") %><%# <br>
+   <%= label_tag("user[password]", "Choose Password") %>
+<%#   <%= password_field_tag("user[password]") %><%# <br>
+   <%= submit_tag("Submit") %>
+<%# <% end %>
+
+<%= form_for @user do |f| %>
+  <%= f.label :username %> <%= f.text_field :username, value: 'Your username goes here' %><br />
+  <%= f.label :email %><%= f.text_field :email, value: 'example@example.com' %><br />
+  <%= f.label :password %> <%= f.password_field :password %><br />
+  <%= f.submit 'Create' %>
+<% end %>

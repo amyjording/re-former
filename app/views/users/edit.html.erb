@@ -1,0 +1,22 @@
+<h1>Edit User Page</h1>
+<p>This is the page for editing an existing user and will house a form.</p>
+<hr>
+
+<%= form_for (@user) do |f| %>
+  <%= f.label :username %> <%= f.text_field :username, value: 'Your username goes here' %><br />
+  <%= f.label :email %><%= f.text_field :email, value: 'example@example.com' %><br />
+  <%= f.label :password %> <%= f.password_field :password %><br />
+  <%= f.submit 'Create' %>
+<% end %>
+
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
